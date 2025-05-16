@@ -1,0 +1,60 @@
+00,01,10,11: A_0,A_1,B_0,B_1,H_4 <- inputs_and_H_4 implicit
+00,01,10,11: inputs_and_H_4 <- A_0,A_1,B_0,B_1,H_4 implicit
+HR(HA_0,HA_1,HB_0,HB_1 | inputs_and_H_4) >= HR(HA_0) + HR(HA_1) + HR(HB_0) + HR(HB_1)
+H00(A_0) = 1
+H01(A_0) = 1
+H10(A_0) = 1
+H11(A_0) = 1
+H00(A_1) = 1
+H01(A_1) = 1
+H10(A_1) = 1
+H11(A_1) = 1
+H00(B_0) = 1
+H01(B_0) = 1
+H10(B_0) = 1
+H11(B_0) = 1
+H00(B_1) = 1
+H01(B_1) = 1
+H10(B_1) = 1
+H11(B_1) = 1
+H00(C_0) = 1
+H01(C_0) = 1
+H10(C_0) = 1
+H11(C_0) = 1
+H00(C_1) = 1
+H01(C_1) = 1
+H10(C_1) = 1
+H11(C_1) = 1
+00: A_1,B_1,C_1 . A_0,B_0,C_0
+00: C_0 <- G,A_0,B_0,H_4,HA_0,HB_0
+I00(A_0,A_1,B_0,B_1,C_0,C_1; G,H_4,HA_0,HB_0 | A_0,B_0,C_0) <= 0
+I00(A_0,A_1,B_0,B_1; G,H_4,HA_0,HB_0 | A_0,B_0) <= 0
+indist R: C_0,C_1,G,inputs_and_H_4,HA_0,HB_0 ; 00: C_0,C_1,G,inputs_and_H_4,HA_0,HB_0 approx eps, eps_W,, eps_G, eps_W + eps_H,,
+01: A_1,B_0,C_1 . A_0,B_1,C_0
+01: C_0 <- G,A_0,B_1,H_4,HA_0,HB_1
+I01(A_0,A_1,B_0,B_1,C_0,C_1; G,H_4,HA_0,HB_1 | A_0,B_1,C_0) <= 0
+I01(A_0,A_1,B_0,B_1; G,H_4,HA_0,HB_1 | A_0,B_1) <= 0
+indist R: C_0,C_1,G,inputs_and_H_4,HA_0,HB_1 ; 01: C_1,C_0,G,inputs_and_H_4,HA_0,HB_1 approx eps, eps_W,, eps_G, eps_W + eps_H,,
+10: A_0,B_1,C_1 . A_1,B_0,C_0
+10: C_0 <- G,A_1,B_0,H_4,HA_1,HB_0
+I10(A_0,A_1,B_0,B_1,C_0,C_1; G,H_4,HA_1,HB_0 | A_1,B_0,C_0) <= 0
+I10(A_0,A_1,B_0,B_1; G,H_4,HA_1,HB_0 | A_1,B_0) <= 0
+indist R: C_0,C_1,G,inputs_and_H_4,HA_1,HB_0 ; 10: C_1,C_0,G,inputs_and_H_4,HA_1,HB_0 approx eps, eps_W,, eps_G, eps_W + eps_H,,
+11: A_0,B_0,C_1 . A_1,B_1,C_0
+11: C_0 <- G,A_1,B_1,H_4,HA_1,HB_1
+I11(A_0,A_1,B_0,B_1,C_0,C_1; G,H_4,HA_1,HB_1 | A_1,B_1,C_0) <= 0
+I11(A_0,A_1,B_0,B_1; G,H_4,HA_1,HB_1 | A_1,B_1) <= 0
+indist R: C_0,C_1,G,inputs_and_H_4,HA_1,HB_1 ; 11: C_1,C_0,G,inputs_and_H_4,HA_1,HB_1 approx eps, eps_W,, eps_G, eps_W + eps_H,,
+indist 00: C_0,C_1,A_0,A_1,B_0,B_1,G,HA_0,H_4 ; 01: C_0,C_1,A_0,A_1,B_0,B_1,G,HA_0,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+indist 00: C_0,C_1,A_0,A_1,B_0,B_1,G,HA_0,H_4 ; 01: C_1,C_0,A_0,A_1,B_0,B_1,G,HA_0,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+indist 00: C_0,C_1,A_0,A_1,B_0,B_1,G,HB_0,H_4 ; 10: C_0,C_1,A_0,A_1,B_0,B_1,G,HB_0,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+indist 00: C_0,C_1,A_0,A_1,B_0,B_1,G,HB_0,H_4 ; 10: C_1,C_0,A_0,A_1,B_0,B_1,G,HB_0,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+indist 00: C_0,C_1,A_0,A_1,B_0,B_1,G,H_4 ; 11: C_0,C_1,A_0,A_1,B_0,B_1,G,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H
+indist 00: C_0,C_1,A_0,A_1,B_0,B_1,G,H_4 ; 11: C_1,C_0,A_0,A_1,B_0,B_1,G,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H
+indist 01: C_0,C_1,A_0,A_1,B_0,B_1,G,H_4 ; 10: C_0,C_1,A_0,A_1,B_0,B_1,G,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H
+indist 01: C_0,C_1,A_0,A_1,B_0,B_1,G,H_4 ; 10: C_1,C_0,A_0,A_1,B_0,B_1,G,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H
+indist 01: C_0,C_1,A_0,A_1,B_0,B_1,G,HB_1,H_4 ; 11: C_0,C_1,A_0,A_1,B_0,B_1,G,HB_1,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+indist 01: C_0,C_1,A_0,A_1,B_0,B_1,G,HB_1,H_4 ; 11: C_1,C_0,A_0,A_1,B_0,B_1,G,HB_1,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+indist 10: C_0,C_1,A_0,A_1,B_0,B_1,G,HA_1,H_4 ; 11: C_0,C_1,A_0,A_1,B_0,B_1,G,HA_1,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+indist 10: C_0,C_1,A_0,A_1,B_0,B_1,G,HA_1,H_4 ; 11: C_1,C_0,A_0,A_1,B_0,B_1,G,HA_1,H_4 approx 2 eps, 2 eps_W,,,,,, 2 eps_G, 2 eps_H,
+prove HR(G | inputs_and_H_4) >= c1 + c2 eps_H + c3 eps_G + c4 eps_W + c5 eps
