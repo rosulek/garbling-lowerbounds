@@ -2,7 +2,7 @@
 
 Jake Januzelli, Mike Rosulek, Lawrence Roy <br/>
 Crypto 2025 <br/>
-[ia.cr/2025/xxx](https://ia.cr/2025/xxx)
+[ia.cr/2025/876](https://ia.cr/2025/876)
 
 ---
 
@@ -13,4 +13,3 @@ This repository contains files and programs that can be used to replicate and ex
 * `*.citip` files are the inputs to Citip, the meaning of which is described described in our paper.
 * `*.proof` files are the outputs of Citip
 * `check_proof.py` can be used to verify the output proof
-
